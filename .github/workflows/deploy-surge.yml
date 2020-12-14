@@ -1,0 +1,23 @@
+name: Deploy website
+
+on:
+  push:
+    branches: [ main ]
+ 
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install NodeJS
+      uses: action/setup-node@v2-beta
+      with:
+        node-version: 12
+    - name: Install Surge
+      run: npm install -globally surge
+    - name: Run surge
+      run: surge ./ myprojects2020.surge.sh --token ${{secret.SURGE_DEPLOYMENT}}
+       
