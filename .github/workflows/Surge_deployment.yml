@@ -21,9 +21,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-          - uses: actions/checkout@v2-beta
+          - uses: actions/checkout@v2
           - name: Install NodeJS
-            uses: action/setup-node@v2-beta
+            uses: action/setup-node@v1-beta
             with:
              node-version: 12
           - name: Install Surge
